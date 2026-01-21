@@ -25,8 +25,13 @@ class Router
     public function dispatch()
     {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
-        $uri = str_replace('/wk8-lecture-resources/php_mvc', '', $uri);
-        $method =  $_SERVER['REQUEST_METHOD'];
+        $uri = str_replace('/cw_2', '', $uri);
+
+        if ($uri === '') {
+            $uri = '/';
+        }
+
+        $method = $_SERVER['REQUEST_METHOD'];
 
         if (array_key_exists($uri, $this->routes[$method])) {
             $controller = $this->routes[$method][$uri]['controller'];
