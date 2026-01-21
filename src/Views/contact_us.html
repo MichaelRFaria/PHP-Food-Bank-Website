@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Michael Faria" />
+    <meta
+      name="description"
+      content="The official website for the Community Table food bank."
+    />
+    <meta name="keywords" content="Community Table, food bank, contact us" />
+
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="../css/contact_us.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script defer src="../js/main.js"></script>
+    <script defer src="../js/contact_us.js"></script>
+
+    <title>Community Table - Contact Us</title>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <h3><a href="../index.html">Main Page</a></h3>
+      <h3>
+        <a href="testimonials.html">Testimonials</a>
+      </h3>
+      <h3><a href="contact_us.html" id="selected">Contact Us</a></h3>
+      <h3><a href="gallery.html">Gallery</a></h3>
+    </div>
+
+    <div id="title">
+      <h1>Community Table</h1>
+      <p>"A Table Set for All"</p>
+    </div>
+
+    <div id="body_content">
+      <h2 id="subtitle">Send your message!</h2>
+      <h4 id="instructions">Please enter your details below</h4>
+      <form id="input_form">
+        <div id="top_form">
+          <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" />
+          </div>
+          <div>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" />
+          </div>
+        </div>
+        <div id="bottom_form">
+          <div>
+            <label for="message">Message:</label>
+            <textarea name="message" rows="8"></textarea>
+          </div>
+          <div>
+            <button onclick="sendEmail()">Submit</button>
+          </div>
+        </div>
+      </form>
+
+      <div id="invisible_images">
+        <img
+          width="400"
+          src="../assets/marketing/food_2.jpg"
+          alt="Image of the interior of the food bank, with crates of donations."
+        />
+        <img
+          width="400"
+          src="../assets/logo/CommunityTable-logo.png"
+          alt="Image of the Community Table logo."
+        />
+        <img
+          width="400"
+          src="../assets/volunteers/people_w_1.jpeg"
+          alt="Image of the interior of the food bank, with crates of donations."
+        />
+      </div>
+    </div>
+
+    <div id="bottom_section">
+      <div id="contact_us">
+        <h4>Contact Us:</h4>
+        <p>For volunteer or partnership opportunities, please contact:</p>
+        <p>hello@communitykitchen.org.uk</p>
+      </div>
+
+      <div>
+        <h4>Follow Us!</h4>
+        <p>Follow our journey and get involved on Instagram:</p>
+        <p><a href="">@communitykitchenldn</a></p>
+      </div>
+
+      <div>
+        <h4>Opening Times:</h4>
+        <p class="not_striked_through" id="weekdays">Mon – Fri: 10 am – 8 pm</p>
+        <p class="not_striked_through" id="saturday">Sat: 10 am – 6 pm</p>
+        <p class="not_striked_through" id="sunday">Sun: Closed</p>
+        <p id="opening_message"></p>
+      </div>
+    </div>
+  </body>
+</html>

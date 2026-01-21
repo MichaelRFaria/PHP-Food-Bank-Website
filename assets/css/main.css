@@ -1,0 +1,139 @@
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+
+  margin: 0;
+  padding: 0;
+}
+
+body :is(h1, h2, h3, h4, h5, h6) {
+  text-align: center;
+}
+
+body img:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s;
+}
+
+body img {
+  transition: transform 0.5s;
+}
+
+#title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Lucida Handwriting", Georgia, "Times New Roman", Times, serif;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-around;
+
+  background-color: rgb(211, 197, 180);
+  border-bottom: 2px solid black;
+}
+
+#navbar h3 {
+  margin: 1vw 0 1vw 0;
+}
+
+#navbar a {
+  width: 15%;
+  text-align: center;
+  padding: 1vw 0.4vw 1vw 0.4vw;
+
+  text-decoration: none;
+  color: black;
+}
+
+#navbar a:hover {
+  background-color: rgb(204, 173, 132);
+}
+
+#selected {
+  background-color: rgb(243, 190, 94);
+}
+
+/* testimonials.html and contact_us.html use this*/
+#subtitle {
+  width: 30%;
+  margin: 0 35% 0 35%;
+  padding: 1vw 0 1vw 0;
+  border-bottom: 2px solid black;
+}
+
+#bottom_section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4vw;
+  clear: left;
+
+  background-color: rgb(211, 197, 180);
+  border-top: 2px solid black;
+  padding: 1vw 0 1vw 0;
+}
+
+#bottom_section div {
+  width: 30%;
+  text-align: center;
+
+  padding: 0 2vw 0 2vw;
+  height: 10rem;
+}
+
+#bottom_section > div:nth-child(1) {
+  border-right: 2px solid black;
+}
+
+#bottom_section > div:nth-child(2) {
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+}
+
+#bottom_section > div:nth-child(3) {
+  border-left: 2px solid black;
+}
+
+#bottom_section :is(h1, h2, h3, h4, h5, h6) {
+  margin-bottom: 0px;
+}
+
+#bottom_section p {
+  margin: 0.4rem 0 0.4rem 0;
+}
+
+.striked_through {
+  text-decoration: line-through;
+}
+
+.not_striked_through {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  /* testimonials.html and contact_us.html use this*/
+  #subtitle {
+    width: 60%;
+    margin: 0 20% 0 20%;
+  }
+
+  #navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #bottom_section p {
+    margin: 0;
+  }
+
+  #bottom_section > div:is(:nth-child(1), :nth-child(2), :nth-child(3)) {
+    border: 0px;
+  }
+
+  #bottom_section p {
+    font-size: 10px;
+  }
+}

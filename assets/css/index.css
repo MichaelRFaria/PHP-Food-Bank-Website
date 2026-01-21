@@ -1,0 +1,33 @@
+#body_content {
+  padding: 1vw 5vw 2vw 5vw;
+  border-top: 2px solid black;
+  background-color: rgb(211, 197, 180);
+  font-size: large;
+}
+
+#information {
+  border-bottom: 2px solid black;
+}
+
+#our_story {
+  border-bottom: 2px solid black;
+  padding-bottom: 1vw;
+}
+
+#our_story img {
+  float: left;
+  margin: 0.2vw 2vw 0.2vw 2vw;
+}
+
+#help img {
+  float: right;
+}
+
+#opening_times_normal {
+  transition: transform 1s;
+}
+
+#opening_times_selected {
+  transform: scale(1.1);
+  transition: transform 1s;
+}

@@ -1,7 +1,137 @@
-{{ include('header.html') }}
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Michael Faria" />
+    <meta
+      name="description"
+      content="The official website for the Community Table food bank."
+    />
+    <meta name="keywords" content="Community Table, food bank" />
 
-<main class="w3-container">
-  <h1>Welcome to the Recipe Book</h1>
-</main>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-{{ include('footer.html') }}
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <script defer src="js/main.js"></script>
+    <script defer src="js/index.js"></script>
+
+    <title>Community Table</title>
+  </head>
+
+  <body>
+    <div id="navbar">
+      <h3><a href="index.html" id="selected">Main Page</a></h3>
+      <h3>
+        <a href="html/testimonials.html">Testimonials</a>
+      </h3>
+      <h3><a href="html/contact_us.html">Contact Us</a></h3>
+      <h3><a href="html/gallery.html">Gallery</a></h3>
+    </div>
+
+    <div id="title">
+      <h1>Community Table</h1>
+      <p>"A Table Set for All"</p>
+    </div>
+
+    <div id="body_content">
+      <div id="information">
+        <h2>Information</h2>
+        <p>
+          We welcome everyone — <em>no referrals or proof of need required</em>.
+          All meals are <em>vegetarian-friendly</em>, with
+          <em>vegan and gluten-free options available</em> daily. The space is
+          <em>fully wheelchair accessible</em>, with
+          <em>step-free entry</em> and <em>accessible bathrooms</em>.
+        </p>
+      </div>
+
+      <div id="our_story">
+        <h2>Our Story</h2>
+        <img
+          width="300"
+          src="assets/marketing/food_1.jpg"
+          alt="Image of the interior of the food bank, with crates of donations."
+        />
+        <p>
+          Community Table was established in 2018 by local organiser
+          <strong>Maya Patel</strong> and chef <strong>David Green</strong> as a
+          neighbourhood initiative to tackle
+          <em>food insecurity and social isolation</em> in the heart of
+          <strong>East London</strong>. What began as a small food bank and soup
+          kitchen in a church hall has evolved into a vibrant community hub
+          where people cook, share, and learn together.
+        </p>
+        <p>
+          Today, Community Kitchen runs a <strong>zero-waste café</strong>,
+          weekly <strong>community meals</strong>, and
+          <strong>cooking workshops</strong> that celebrate seasonal,
+          affordable, and culturally diverse food. <em>All proceeds</em> go back
+          into supporting local families through meal donations, skills
+          training, and volunteer opportunities.
+        </p>
+        <p>
+          Recognised for its innovative approach to
+          <em>social sustainability</em>, Community Kitchen received the
+          <strong>London Food Roots Award (2023)</strong> and continues to
+          partner with local growers and surplus suppliers to ensure that no
+          good food goes to waste.
+        </p>
+      </div>
+
+      <div id="help">
+        <h2>Need help or want to help?</h2>
+        <img
+          width="200"
+          src="assets/logo/CommunityTable_logoTransparentYellow.png"
+          alt="Image of the Community Table logo."
+        />
+        <p>
+          If you want to meet and speak to us <emp>in person</emp>. Feel free to
+          drop by our food bank in <strong>Islington, London</strong> when we
+          are open.
+          <a href="index.html#opening_times" onclick="navigateToOpeningTimes()"
+            >Opening times</a
+          >
+          are shown at the <emp>bottom-right</emp> of this website.
+        </p>
+        <p>
+          Alternatively, if you would like to send any <emp>inquiries</emp> or
+          want to leave us a <emp>message</emp>, you can do so at the e-mail:
+          <strong>hello@communitykitchen.org.uk</strong> which is also provided
+          at the <emp>bottom-left</emp> of this website, or you can do so at the
+          page <a href="html/contact_us.html">here!</a>
+        </p>
+        <p>
+          If you would like to hear of the <emp>community's experiences</emp> of
+          our food bank. You can view our <strong>testimonials</strong>
+          <a href="html/testimonials.html">here!</a>
+        </p>
+        <h4>We hope to hear from you!</h4>
+      </div>
+    </div>
+
+    <div id="bottom_section">
+      <div id="contact_us">
+        <h4>Contact Us:</h4>
+        <p>For volunteer or partnership opportunities, please contact:</p>
+        <p>hello@communitykitchen.org.uk</p>
+      </div>
+
+      <div>
+        <h4>Follow Us!</h4>
+        <p>Follow our journey and get involved on Instagram:</p>
+        <p><a href="">@communitykitchenldn</a></p>
+      </div>
+
+      <div id="opening_times_normal">
+        <h4>Opening Times:</h4>
+        <p class="not_striked_through" id="weekdays">Mon – Fri: 10 am – 8 pm</p>
+        <p class="not_striked_through" id="saturday">Sat: 10 am – 6 pm</p>
+        <p class="not_striked_through" id="sunday">Sun: Closed</p>
+        <p id="opening_message"></p>
+      </div>
+    </div>
+  </body>
+</html>
