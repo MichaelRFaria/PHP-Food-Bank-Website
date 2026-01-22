@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Michael Faria" />
+    <meta
+      name="description"
+      content="The official website for the Community Table food bank."
+    />
+    <meta name="keywords" content="Community Table, food bank, login" />
+
+    <link rel="stylesheet" href="/website/assets/css/main.css" />
+    <link rel="stylesheet" href="/website/assets/css/login.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script defer src="/website/assets/js/main.js"></script>
+
+    <title>{{ pageTitle }}</title>
+  </head>
+
+  <body>
+    {{ include('header.html') }}
+
+    <div id="title">
+      <h1>Community Table</h1>
+      <p>"A Table Set for All"</p>
+    </div>
+
+    <div id="body_content">
+      <h4 id="instructions">Please enter your login details below</h4>
+      <form id="input_form" action="/website/includes/authenticate.php" method="post">
+        <div id="top_form">
+          <div>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="E-mail Address" required />
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required />
+          </div>
+          <div>
+            <input type="submit" value="Login"/>
+        </div>
+      </form>
+    </div>
+    
+    {{ include('footer.html') }}
+  </body>
+</html>
