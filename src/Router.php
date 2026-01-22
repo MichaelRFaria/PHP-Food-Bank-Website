@@ -25,7 +25,7 @@ class Router
     public function dispatch()
     {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
-        $uri = str_replace('/cw_2', '', $uri);
+        $uri = str_replace('/website', '', $uri);
 
         if ($uri === '') {
             $uri = '/';
