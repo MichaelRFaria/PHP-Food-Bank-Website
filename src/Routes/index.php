@@ -13,9 +13,9 @@ $router = new Router();
 $router->get('/', HomeController::class, 'index');
 $router->get('/index.php', HomeController::class, 'index');
 $router->get('/index.html', HomeController::class, 'index');
-$router->get('/contact_us.html', ContactController::class, 'index');
-$router->get('/gallery.html', GalleryController::class, 'index');
-$router->get('/testimonials.html', TestimonialsController::class, 'index');
+$router->get('/contact_us', ContactController::class, 'index');
+$router->get('/gallery', GalleryController::class, 'index');
+$router->get('/testimonials', TestimonialsController::class, 'index');
 
 $router->dispatch();
 
