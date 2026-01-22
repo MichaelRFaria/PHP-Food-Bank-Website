@@ -48,7 +48,7 @@ CREATE TABLE
     );
 
 -- insert staff account
-INSERT INTO users (name,email,phone,password,role,is_over_18) VALUES ("Test","test@email.com","12345678901","$2y$12$g8HbZkrCtslS8c.GLPjTsuvKTVEw2Pjx5kabaZnC65qpFGnODNlX2","staff",TRUE) -- password = password123
+INSERT INTO users (name,email,phone,password,role,is_over_18) VALUES ("Test","test@email.com","12345678901","$2y$12$g8HbZkrCtslS8c.GLPjTsuvKTVEw2Pjx5kabaZnC65qpFGnODNlX2","staff",1) -- password = password123
 
 -- insert opening hours
 -- insert shift hours

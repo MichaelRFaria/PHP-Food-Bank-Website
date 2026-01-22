@@ -7,6 +7,8 @@ use In3050Inm428WebDev\PhpMvc\Controllers\ContactController;
 use In3050Inm428WebDev\PhpMvc\Controllers\GalleryController;
 use In3050Inm428WebDev\PhpMvc\Controllers\TestimonialsController;
 use In3050Inm428WebDev\PhpMvc\Controllers\LoginController;
+use In3050Inm428WebDev\PhpMvc\Controllers\RegistrationController;
+
 
 use In3050Inm428WebDev\PhpMvc\Router;
 
@@ -19,6 +21,8 @@ $router->get('/contact_us', ContactController::class, 'index');
 $router->get('/gallery', GalleryController::class, 'index');
 $router->get('/testimonials', TestimonialsController::class, 'index');
 $router->get('/login', LoginController::class, 'index');
+$router->get('/register', RegistrationController::class, 'index');
+
 
 $router->dispatch();
 
