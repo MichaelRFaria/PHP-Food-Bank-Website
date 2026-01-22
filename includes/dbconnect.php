@@ -6,7 +6,7 @@ function db_connect() {
   // Check is database connection exists, if not connected
   if(!isset($connection)) {
     // Load configuration as an array from .ini file
-    $config = parse_ini_file('../../../private/recipes_config.ini'); 
+    $config = parse_ini_file('/var/www/private/config.ini'); 
     $connection = new mysqli($config['servername'],$config['username'],$config['password'],$config['dbname']);
   }
 
