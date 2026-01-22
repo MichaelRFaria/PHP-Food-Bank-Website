@@ -1,49 +1,8 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{pagetitle}}</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <div class="w3-bar w3-dark-grey">
-      <a href="./" class="w3-bar-item w3-button w3-deep-purple">Home</a>
-      <div class="w3-dropdown-hover w3-hide-small">
-        <button class="w3-button">
-          Recipes <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="w3-dropdown-content w3-bar-block w3-white w3-card-4">
-          <a
-            href="recipes.php?order=az"
-            class="w3-bar-item w3-button w3-text-deep-purple"
-            >All recipes (A-Z)</a
-          >
-          <a
-            href="recipes.php?order=section"
-            class="w3-bar-item w3-button w3-text-deep-purple"
-            >Recipes by Section</a
-          >
-          <a
-            href="recipes.php?order=latest"
-            class="w3-bar-item w3-button w3-text-deep-purple"
-            >Latest recipes</a
-          >
-        </div>
-      </div>
-      {% if LOGGED_IN %}
-      <a href="#" class="w3-bar-item w3-button w3-right w3-mid-grey"
-        ><i class="fa fa-sign-out"></i
-      ></a>
-      {% else %}
-      <a href="#" class="w3-bar-item w3-button w3-right w3-mid-grey"
-        ><i class="fa fa-sign-in"></i
-      ></a>
-      {% endif %}
-    </div>
-  </body>
-</html>
+<div id="navbar">
+  <h3><a href="/website/" {% if activePage == "home" %}id="selected"{% endif %}>Main Page</a></h3>
+  <h3>
+    <a href="/website/testimonials.html" {% if activePage == "testimonials" %}id="selected"{% endif %}>Testimonials</a>
+  </h3>
+  <h3><a href="/website/contact_us.html" {% if activePage == "contact" %}id="selected"{% endif %}>Contact Us</a></h3>
+  <h3><a href="/website/gallery.html" {% if activePage == "gallery" %}id="selected"{% endif %}>Gallery</a></h3>
+</div>

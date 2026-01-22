@@ -9,7 +9,8 @@ class ContactController extends Controller
     public function index()
     {
 
-        $data["pagetitle"] = 'Contact Us';
+        $data["pageTitle"] = 'Contact Us';
+        $data["activePage"] = 'contact';
 
         $this->render('contact_us', $data);
     }

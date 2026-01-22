@@ -9,7 +9,8 @@ class GalleryController extends Controller
     public function index()
     {
 
-        $data["pagetitle"] = 'Gallery';
+        $data["pageTitle"] = 'Gallery';
+        $data["activePage"] = 'gallery';
 
         $this->render('gallery', $data);
     }

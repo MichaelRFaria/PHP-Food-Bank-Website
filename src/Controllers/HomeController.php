@@ -9,7 +9,8 @@ class HomeController extends Controller
     public function index()
     {
 
-        $data["pagetitle"] = 'Community Table';
+        $data["pageTitle"] = 'Community Table';
+        $data["activePage"] = 'home';
 
         $this->render('index', $data);
     }

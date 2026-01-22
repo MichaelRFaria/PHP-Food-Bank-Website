@@ -9,7 +9,8 @@ class TestimonialsController extends Controller
     public function index()
     {
 
-        $data["pagetitle"] = 'Testimonials';
+        $data["pageTitle"] = 'Testimonials';
+        $data["activePage"] = 'testimonials';
 
         $this->render('testimonials', $data);
     }

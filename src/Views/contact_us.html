@@ -17,18 +17,11 @@
     <script defer src="/website/assets/js/main.js"></script>
     <script defer src="/website/assets/js/contact_us.js"></script>
 
-    <title>Community Table - Contact Us</title>
+    <title>{{ pageTitle }}</title>
   </head>
 
   <body>
-    <div id="navbar">
-      <h3><a href="/website/">Main Page</a></h3>
-      <h3>
-        <a href="/website/testimonials.html">Testimonials</a>
-      </h3>
-      <h3><a href="/website/contact_us.html" id="selected">Contact Us</a></h3>
-      <h3><a href="/website/gallery.html">Gallery</a></h3>
-    </div>
+    {{ include('header.html') }}
 
     <div id="title">
       <h1>Community Table</h1>
