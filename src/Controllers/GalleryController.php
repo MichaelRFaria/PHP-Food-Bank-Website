@@ -4,13 +4,13 @@ namespace In3050Inm428WebDev\PhpMvc\Controllers;
 
 use In3050Inm428WebDev\PhpMvc\Controller;
 
-class HomeController extends Controller
+class GalleryController extends Controller
 {
     public function index()
     {
 
-        $data["pagetitle"] = 'Community Table';
+        $data["pagetitle"] = 'Gallery';
 
-        $this->render('index', $data);
+        $this->render('gallery', $data);
     }
 }
