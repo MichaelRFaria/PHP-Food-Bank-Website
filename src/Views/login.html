@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
   <head>
     <meta charset="utf-8" />
@@ -24,28 +24,48 @@
 
     <div id="body_content">
       <h4 id="instructions">Please enter your login details below</h4>
-      <form id="input_form" action="/website/includes/authenticate.php" method="post">
-        <div id="top_form">
+      <form
+        id="input_form"
+        action="/website/includes/authenticate.php"
+        method="post"
+      >
+        <div>
           <div>
             <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" placeholder="E-mail Address" required />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-mail Address"
+              required
+            />
           </div>
           <div>
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Password" required />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
           </div>
           <div>
             <label for="remember">Remember me?</label>
             <input type="checkbox" id="remember" name="remember" />
           </div>
           <div>
-            <input type="submit" value="Login"/>
+            <input type="submit" value="Login" />
+          </div>
         </div>
       </form>
-      
-      <p>Don't have an account? Click <a href="/website/register">here</a> to register an account</p>
+
+      <p>
+        Don't have an account? Click <a href="/website/register">here</a> to
+        register an account
+      </p>
     </div>
-    
+
     {{ include('footer.html') }}
   </body>
 </html>
