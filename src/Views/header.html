@@ -5,6 +5,12 @@
   </h3>
   <h3><a href="/website/contact_us" {% if activePage == "contact" %}id="selected"{% endif %}>Contact Us</a></h3>
   <h3><a href="/website/gallery" {% if activePage == "gallery" %}id="selected"{% endif %}>Gallery</a></h3>
+  {% if loggedIn %}
+  <h3><a href="/website/includes/logout.php">Logout</a></h3>
+  {% else %}
+  <h3><a href="/website/login" {% if activePage == "login" %}id="selected"{% endif %}>Login</a></h3>
+  {% endif %}
+
 </div>
 
 <div id="title">

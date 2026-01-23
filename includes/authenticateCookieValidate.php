@@ -31,7 +31,7 @@ if(!empty($_COOKIE['userid']) && !empty($_COOKIE['userauth'])){
                 // setup session variables
                 $_SESSION['loggedin'] = TRUE;
                 $_SESSION['email'] = $email;
-                $_SESSION['user_id'] = $id;
+                $_SESSION['user_id'] = $userid;
                 $_SESSION['role'] = $role;
                 $_SESSION['latest_action_timestamp'] = time();
                 

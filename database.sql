@@ -23,16 +23,14 @@ CREATE TABLE
         is_over_18 BOOLEAN NOT NULL
     );
 
--- user_login module only change AUTO_INCREMENT on ID
 CREATE TABLE
     remembered_logins (
-        id AUTO_INCREMENT INT NOT NULL,
+        id INT AUTO_INCREMENT,
         uid VARCHAR(255) NOT NULL,
         date DATETIME NOT NULL,
         PRIMARY KEY (id, uid)
     );
 
-ALTER TABLE remembered_logins ADD PRIMARY KEY ("id", "uid");
 
 CREATE TABLE
     opening_hours (

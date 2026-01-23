@@ -14,6 +14,11 @@ class Controller
         $twig = new \Twig\Environment($loader, ['cache' => FALSE, 'debug' => true ,]);
         $twig->addExtension(new \Twig\Extension\DebugExtension());
 
+        // test
+        $twig->addGlobal('loggedIn',isset($_SESSION['loggedin']));
+        $twig->addGlobal('role',$_SESSION['role'] ?? null);
+
+
         $template = $twig->load("$view.html");
         echo $template->render($data);
 
