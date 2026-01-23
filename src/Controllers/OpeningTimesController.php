@@ -12,11 +12,11 @@ class OpeningTimesController extends Controller
     {
         $data["pageTitle"] = "Opening Times";
 
-        $times = Models\OpeningTimes::getAll();
+        $times = Models\OpeningTimes::getOpeningTimes();
 
-        foreach ($times as $time) {
-            $data['opening_times'][] = get_object_vars($time);
-        }
+        $data["this_week"] = $times['this_week'];
+        $data["next_week"] = $times['next_week'];
+
         // render page
         $this->render("openingTimes", $data);
     }

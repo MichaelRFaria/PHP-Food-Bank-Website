@@ -9,12 +9,19 @@ require_once('./includes/dbconnect.php');
 class OpeningTimes
 {
 
-    public static function getAll()
+    public static function getOpeningTimes()
     {
         // setup sql
-        $sql = 'SELECT id, date, open_time, close_time FROM opening_hours ORDER BY id';
+        // BETWEEN = monday of this week and sunday of next week (inclusive)
+        $sql = 'SELECT id, date, open_time, close_time FROM opening_hours WHERE date BETWEEN DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY) AND DATE_ADD(DATE_SUB(CURDATE(), INTERVAL WEEKDAY(CURDATE()) DAY), INTERVAL 13 DAY) ORDER BY date';
 
-        $times = [];
+        $times = [
+            'this_week' => [],
+            'next_week' => []
+        ];
+
+        $current_week = date('W');
+
         // get connect and data
         $connection = db_connect();
 
@@ -24,7 +31,18 @@ class OpeningTimes
             // output resultset as array of times
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                $times[] = new Models\OpeningTime($row['id'], date('l', strtotime($row['date'])), $row['open_time'], $row['close_time']);
+                $day = [
+                    'id' => $row['id'],
+                    'date' => date('l', strtotime($row['date'])),
+                    'open_time' => $row['open_time'],
+                    'close_time' => $row['close_time']
+                ];
+
+                if (date('W', strtotime($row['date'])) === $current_week) {
+                    $times['this_week'][] = $day;
+                } else {
+                    $times['next_week'][] = $day;
+                }
             }
         }
         // Close connection

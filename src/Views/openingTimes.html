@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
   <head>
     <meta charset="utf-8" />
@@ -24,23 +24,39 @@
 
     <div id="body_content">
       <h4 id="instructions">View our opening times below</h4>
-        <table id="table">
-            <tr>
-                <th>Day</th>
-                <th>Opens</th>
-                <th>Closes</th>
-            </tr>
+      <table class="table">
+        <tr>
+          <th>Day</th>
+          <th>Opens</th>
+          <th>Closes</th>
+        </tr>
 
-            {% for time in opening_times %}
-            <tr>
-                <td>{{ time.date }}</td>
-                <td>{{ time.open_time }}</td>
-                <td>{{ time.close_time }}</td>
-            </tr>
-            {% endfor %}
-        </table>
+        {% for time in this_week %}
+        <tr>
+          <td>{{ time.date }}</td>
+          <td>{{ time.open_time }}</td>
+          <td>{{ time.close_time }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <table class="table">
+        <tr>
+          <th>Day</th>
+          <th>Opens</th>
+          <th>Closes</th>
+        </tr>
+
+        {% for time in next_week %}
+        <tr>
+          <td>{{ time.date }}</td>
+          <td>{{ time.open_time }}</td>
+          <td>{{ time.close_time }}</td>
+        </tr>
+        {% endfor %}
+      </table>
     </div>
-    
+
     {{ include('footer.html') }}
   </body>
 </html>

@@ -1,6 +1,10 @@
 USE foodbank;
 
+-- DO NOT FORMAT
+
 -- debug
+DROP TABLE IF EXISTS shift_registration;
+
 DROP TABLE IF EXISTS users;
 
 DROP TABLE IF EXISTS remembered_logins;
@@ -9,9 +13,7 @@ DROP TABLE IF EXISTS opening_hours;
 
 DROP TABLE IF EXISTS shifts;
 
-DROP TABLE IF EXISTS shift_registration;
-
--- db creation
+-- db creation 
 CREATE TABLE
     users (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -68,17 +70,137 @@ VALUES
         "$2y$12$g8HbZkrCtslS8c.GLPjTsuvKTVEw2Pjx5kabaZnC65qpFGnODNlX2",
         "staff",
         1
-    ) -- password = password123
-    -- insert opening hours
+    );
+
+-- password = password123
+-- insert opening hours (this entire week, next entire week, and one day extra for bounds checking)
 INSERT INTO
     opening_hours (date, open_time, close_time)
 VALUES
-    ("2026-01-26", "10:00:00", "19:00:00"),
-    ("2026-01-27", "10:00:00", "19:00:00"),
-    ("2026-01-28", "11:00:00", "15:00:00"),
-    ("2026-01-29", "10:00:00", "18:00:00"),
-    ("2026-01-30", "10:00:00", "19:30:00"),
-    ("2026-01-31", "09:00:00", "19:30:00"),
-    ("2026-02-01", "10:30:00", "16:00:00");
+    (
+        DATE_SUB(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 1 DAY
+        ),
+        '12:12:12',
+        '12:12:12'
+    ),
+    (
+        DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+        '10:00:00',
+        '19:00:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 1 DAY
+        ),
+        '10:00:00',
+        '19:00:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 2 DAY
+        ),
+        '11:00:00',
+        '15:00:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 3 DAY
+        ),
+        '10:00:00',
+        '18:00:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 4 DAY
+        ),
+        '10:00:00',
+        '19:30:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 5 DAY
+        ),
+        '09:00:00',
+        '19:30:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 6 DAY
+        ),
+        '10:30:00',
+        '16:00:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 7 DAY
+        ),
+        '10:00:00',
+        '19:00:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 8 DAY
+        ),
+        '10:00:00',
+        '19:00:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 9 DAY
+        ),
+        '11:00:00',
+        '15:00:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 10 DAY
+        ),
+        '10:00:00',
+        '18:00:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 11 DAY
+        ),
+        '10:00:00',
+        '19:30:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 12 DAY
+        ),
+        '09:00:00',
+        '19:30:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 13 DAY
+        ),
+        '10:30:00',
+        '16:00:00'
+    ),
+    (
+        DATE_ADD(
+            DATE_SUB(CURDATE(), INTERVAL WEEKDAY (CURDATE()) DAY),
+            INTERVAL 14 DAY
+        ),
+        '12:12:12',
+        '12:12:12'
+    );
 
 -- insert shift hours
