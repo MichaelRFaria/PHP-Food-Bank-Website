@@ -11,6 +11,7 @@ class OpeningTimesController extends Controller
     public function index()
     {
         $data["pageTitle"] = "Opening Times";
+        $data["activePage"] = 'opening-times';
 
         $times = Models\OpeningTimes::getOpeningTimes();
 
