@@ -9,8 +9,9 @@ use In3050Inm428WebDev\PhpMvc\Controllers\TestimonialsController;
 use In3050Inm428WebDev\PhpMvc\Controllers\LoginController;
 use In3050Inm428WebDev\PhpMvc\Controllers\RegistrationController;
 
-
 use In3050Inm428WebDev\PhpMvc\Router;
+
+session_start();
 
 $router = new Router();
 

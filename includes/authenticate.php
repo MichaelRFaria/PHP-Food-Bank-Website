@@ -24,7 +24,7 @@ $connection = db_connect();
 // if no errors
 if (empty($_SESSION["error"])){
     // Prepare SQL, prepared statements will prevent SQL injection.
-    if ($stmt = $connection->prepare('SELECT email, password FROM users WHERE email = ?')) {
+    if ($stmt = $connection->prepare('SELECT id, email, password, role FROM users WHERE email = ?')) {
         $stmt->bind_param('s', $_POST['email']);
         $stmt->execute();
         // store results
@@ -32,16 +32,19 @@ if (empty($_SESSION["error"])){
         
         // if the user has been found
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($email, $password);
+            $stmt->bind_result($id, $email, $password, $role);
             $stmt->fetch();
             // Account exists, now we verify the password.
             // Note: remember to use password_hash in your registration file to store the hashed passwords.
             if (password_verify($_POST['password'], $password)) {
                 // Verification success! User has logged-in!
-                // // Create sessions, so we know the user is logged in.
-                // $_SESSION['loggedin'] = TRUE;
-                // $_SESSION['name'] = $username;
-                // $_SESSION['id'] = $id;
+                // Create sessions, so we know the user is logged in.
+                $_SESSION['loggedin'] = TRUE;
+                $_SESSION['email'] = $email;
+                $_SESSION['user_id'] = $id;
+                $_SESSION['role'] = $role;
+                $_SESSION['latest_action_timestamp'] = time();
+
 
                 // // Setup login cookie if remember me is checked
                 // if(isset($_POST['remember']) && !empty($_POST['remember'])) {
