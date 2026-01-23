@@ -9,6 +9,7 @@ use In3050Inm428WebDev\PhpMvc\Controllers\TestimonialsController;
 use In3050Inm428WebDev\PhpMvc\Controllers\LoginController;
 use In3050Inm428WebDev\PhpMvc\Controllers\RegistrationController;
 use In3050Inm428WebDev\PhpMvc\Controllers\OpeningTimesController;
+use In3050Inm428WebDev\PhpMvc\Controllers\ShiftTimesController;
 
 use In3050Inm428WebDev\PhpMvc\Router;
 
@@ -28,8 +29,7 @@ $router->get('/testimonials', TestimonialsController::class, 'index');
 $router->get('/login', LoginController::class, 'index');
 $router->get('/register', RegistrationController::class, 'index');
 $router->get('/opening-times', OpeningTimesController::class, 'index');
-
-
+$router->get('/shift-times', ShiftTimesController::class, 'index');
 
 $router->dispatch();
 

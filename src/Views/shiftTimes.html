@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Michael Faria" />
+    <meta
+      name="description"
+      content="The official website for the Community Table food bank."
+    />
+    <meta name="keywords" content="Community Table, food bank, volunteer shift times" />
+
+    <link rel="stylesheet" href="/website/assets/css/main.css" />
+    <link rel="stylesheet" href="/website/assets/css/shift_times.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script defer src="/website/assets/js/main.js"></script>
+
+    <title>{{ pageTitle }}</title>
+  </head>
+
+  <body>
+    {{ include('header.html') }}
+
+    <div id="body_content">
+      <h4 id="instructions">View our volunteer shift times below</h4>
+      <div id=tables>
+        <div>
+        <h3>This week:</h3>
+          <table class="table">
+            <tr>
+              <th>Day</th>
+              <th>Yellow Shift</th>
+              <th>Blue Shift</th>
+              <th>Orange Shift</th>
+              <th>Purple Shift</th>
+            </tr>
+
+            {% for day, shift in this_week %}
+            <tr>
+              <td>{{ day }}</td>
+                {% for colour in ['yellow','blue','orange','purple'] %}
+                    <td>
+                    {% if shift[colour] is defined and shift[colour].start_time %}
+                        {{ shift[colour].start_time }} to {{ shift[colour].end_time }}
+                    {% else %}
+                        None
+                    {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        
+        <div>
+        <h3>Next week:</h3>
+          <table class="table">
+            <tr>
+              <th>Day</th>
+              <th>Yellow Shift</th>
+              <th>Blue Shift</th>
+              <th>Orange Shift</th>
+              <th>Purple Shift</th>
+            </tr>
+
+            {% for day, shift in next_week %}
+            <tr>
+              <td>{{ day }}</td>
+                {% for colour in ['yellow','blue','orange','purple'] %}
+                    <td>
+                    {% if shift[colour] is defined and shift[colour].start_time %}
+                        {{ shift[colour].start_time }} to {{ shift[colour].end_time }}
+                    {% else %}
+                        None
+                    {% endif %}
+                    </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+    </div>
+
+    {{ include('footer.html') }}
+  </body>
+</html>

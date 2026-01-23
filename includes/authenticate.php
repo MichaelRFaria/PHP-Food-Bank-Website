@@ -69,17 +69,20 @@ if (empty($_SESSION["error"])){
                 }
                 // Redirect to homepage
                 header('Location: /website/'); // TEMP
+                exit();
             } 
             else {
                 // Incorrect password
                 $_SESSION['error'] = 'Incorrect username and/or password!';
                 header('Location: /website/login');
+                exit();
             }
         } 
         else {
             // Incorrect username
             $_SESSION['error'] = 'Incorrect username and/or password!';
             header('Location: /website/login');
+            exit();
         }
     }
     // Close connection
