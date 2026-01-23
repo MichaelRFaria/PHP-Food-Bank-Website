@@ -13,6 +13,9 @@ use In3050Inm428WebDev\PhpMvc\Router;
 
 session_start();
 
+// if valid cookies are available, we auto log in
+require_once("./includes/authenticateCookieValidate.php");
+
 $router = new Router();
 
 $router->get('/', HomeController::class, 'index');

@@ -3,6 +3,8 @@ USE foodbank;
 -- debug
 DROP TABLE IF EXISTS users;
 
+DROP TABLE IF EXISTS remembered_logins;
+
 DROP TABLE IF EXISTS opening_hours;
 
 DROP TABLE IF EXISTS shifts;
@@ -20,6 +22,17 @@ CREATE TABLE
         role ENUM ("staff", "volunteer") NOT NULL,
         is_over_18 BOOLEAN NOT NULL
     );
+
+-- user_login module only change AUTO_INCREMENT on ID
+CREATE TABLE
+    remembered_logins (
+        id AUTO_INCREMENT INT NOT NULL,
+        uid VARCHAR(255) NOT NULL,
+        date DATETIME NOT NULL,
+        PRIMARY KEY (id, uid)
+    );
+
+ALTER TABLE remembered_logins ADD PRIMARY KEY ("id", "uid");
 
 CREATE TABLE
     opening_hours (
@@ -48,7 +61,16 @@ CREATE TABLE
     );
 
 -- insert staff account
-INSERT INTO users (name,email,phone,password,role,is_over_18) VALUES ("Test","test@email.com","12345678901","$2y$12$g8HbZkrCtslS8c.GLPjTsuvKTVEw2Pjx5kabaZnC65qpFGnODNlX2","staff",1) -- password = password123
-
--- insert opening hours
--- insert shift hours
+INSERT INTO
+    users (name, email, phone, password, role, is_over_18)
+VALUES
+    (
+        "Test",
+        "test@email.com",
+        "12345678901",
+        "$2y$12$g8HbZkrCtslS8c.GLPjTsuvKTVEw2Pjx5kabaZnC65qpFGnODNlX2",
+        "staff",
+        1
+    ) -- password = password123
+    -- insert opening hours
+    -- insert shift hours

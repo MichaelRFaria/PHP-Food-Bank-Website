@@ -5,10 +5,9 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-$timeout = 3600;
+$timeout = ($_SESSION["role"] == "staff") ? 28800 : 3600;
 
 // if not logged in, log in
-
 if (!isset($_SESSION["loggedin"])) {
     header("Location: /website/login");
 }

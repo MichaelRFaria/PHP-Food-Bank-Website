@@ -46,27 +46,27 @@ if (empty($_SESSION["error"])){
                 $_SESSION['latest_action_timestamp'] = time();
 
 
-                // // Setup login cookie if remember me is checked
-                // if(isset($_POST['remember']) && !empty($_POST['remember'])) {
-                //     // Calculate expiration time (48 hours)
-                //     $current_time = new DateTime();
-                //     // Generate uid and store in database and cookies
-                //     $uid = uniqid();
-                //     if ($stmt = $connection->prepare('INSERT INTO remembered_logins (id, uid, date) VALUES (?, ?, ?)')) {
-                //         $date_string = $current_time->format('Y-m-d H:i:s');
-                //         $stmt->bind_param('sss', $id, $uid, $date_string);
-                //         $stmt->execute();
-                //         // Set cookies 
-                //         // expiry must be unix time stamp
-                //         $cookie_expiration_time = ($current_time->add(new DateInterval('PT4H')))->getTimestamp();
-                //         setcookie('userid', $id, $cookie_expiration_time, '/', $_SERVER['SERVER_NAME']);
-                //         setcookie('userauth', $uid , $cookie_expiration_time, '/', $_SERVER['SERVER_NAME']); 
-                //         setcookie('remember', TRUE, $cookie_expiration_time, '/', $_SERVER['SERVER_NAME']);
-                //     }
-                // }
-                // else {
-                //     setcookie('remember', '', time() - 3600, '/', $_SERVER['SERVER_NAME']);
-                // }
+                // Setup login cookie if remember me is checked
+                if(isset($_POST['remember']) && !empty($_POST['remember'])) {
+                    // Calculate expiration time (48 hours)
+                    $current_time = new DateTime();
+                    // Generate uid and store in database and cookies
+                    $uid = uniqid();
+                    if ($stmt = $connection->prepare('INSERT INTO remembered_logins (id, uid, date) VALUES (?, ?, ?)')) {
+                        $date_string = $current_time->format('Y-m-d H:i:s');
+                        $stmt->bind_param('sss', $id, $uid, $date_string);
+                        $stmt->execute();
+                        // Set cookies 
+                        // expiry must be unix time stamp
+                        $cookie_expiration_time = ($current_time->add(new DateInterval('PT8H')))->getTimestamp(); // PT4H original
+                        setcookie('userid', $id, $cookie_expiration_time, '/', $_SERVER['SERVER_NAME']);
+                        setcookie('userauth', $uid , $cookie_expiration_time, '/', $_SERVER['SERVER_NAME']); 
+                        setcookie('remember', TRUE, $cookie_expiration_time, '/', $_SERVER['SERVER_NAME']);
+                    }
+                }
+                else {
+                    setcookie('remember', '', time() - 3600, '/', $_SERVER['SERVER_NAME']);
+                }
                 // Redirect to homepage
                 header('Location: /website/'); // TEMP
             } 
