@@ -82,19 +82,8 @@ body img {
 
   padding: 0 2vw 0 2vw;
   height: 10rem;
-}
-
-#bottom_section > div:nth-child(1) {
-  border-right: 2px solid black;
-}
-
-#bottom_section > div:nth-child(2) {
-  border-right: 2px solid black;
   border-left: 2px solid black;
-}
-
-#bottom_section > div:nth-child(3) {
-  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
 #bottom_section :is(h1, h2, h3, h4, h5, h6) {
@@ -103,14 +92,6 @@ body img {
 
 #bottom_section p {
   margin: 0.4rem 0 0.4rem 0;
-}
-
-.striked_through {
-  text-decoration: line-through;
-}
-
-.not_striked_through {
-  text-decoration: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -129,7 +110,7 @@ body img {
     margin: 0;
   }
 
-  #bottom_section > div:is(:nth-child(1), :nth-child(2), :nth-child(3)) {
+  #bottom_section > div:is(:nth-child(1), :nth-child(2)) {
     border: 0px;
   }
 
