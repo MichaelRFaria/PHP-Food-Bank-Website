@@ -31,12 +31,12 @@ class OpeningTimes
             // output resultset as array of times
             $result = $stmt->get_result();
             while ($row = $result->fetch_assoc()) {
-                $day = [
-                    'id' => $row['id'],
-                    'date' => date('l', strtotime($row['date'])),
-                    'open_time' => $row['open_time'],
-                    'close_time' => $row['close_time']
-                ];
+                $day = new Models\OpeningTime(
+                    $row['id'],
+                    date('l', strtotime($row['date'])),
+                    $row['open_time'],
+                    $row['close_time']
+                );
 
                 if (date('W', strtotime($row['date'])) === $current_week) {
                     $times['this_week'][] = $day;
