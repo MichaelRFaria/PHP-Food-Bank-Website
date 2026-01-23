@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Michael Faria" />
+    <meta
+      name="description"
+      content="The official website for the Community Table food bank."
+    />
+    <meta name="keywords" content="Community Table, food bank, opening times" />
+
+    <link rel="stylesheet" href="/website/assets/css/main.css" />
+    <link rel="stylesheet" href="/website/assets/css/opening_times.css" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <script defer src="/website/assets/js/main.js"></script>
+
+    <title>{{ pageTitle }}</title>
+  </head>
+
+  <body>
+    {{ include('header.html') }}
+
+    <div id="body_content">
+      <h4 id="instructions">View our opening times below</h4>
+        <table id="table">
+            <tr>
+                <th>Day</th>
+                <th>Opens</th>
+                <th>Closes</th>
+            </tr>
+
+            {% for time in opening_times %}
+            <tr>
+                <td>{{ time.date }}</td>
+                <td>{{ time.open_time }}</td>
+                <td>{{ time.close_time }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+    {{ include('footer.html') }}
+  </body>
+</html>

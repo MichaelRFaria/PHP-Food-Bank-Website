@@ -31,7 +31,6 @@ CREATE TABLE
         PRIMARY KEY (id, uid)
     );
 
-
 CREATE TABLE
     opening_hours (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -71,4 +70,15 @@ VALUES
         1
     ) -- password = password123
     -- insert opening hours
-    -- insert shift hours
+INSERT INTO
+    opening_hours (date, open_time, close_time)
+VALUES
+    ("2026-01-26", "10:00:00", "19:00:00"),
+    ("2026-01-27", "10:00:00", "19:00:00"),
+    ("2026-01-28", "11:00:00", "15:00:00"),
+    ("2026-01-29", "10:00:00", "18:00:00"),
+    ("2026-01-30", "10:00:00", "19:30:00"),
+    ("2026-01-31", "09:00:00", "19:30:00"),
+    ("2026-02-01", "10:30:00", "16:00:00");
+
+-- insert shift hours
