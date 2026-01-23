@@ -34,8 +34,8 @@ class OpeningTimes
                 $day = new Models\OpeningTime(
                     $row['id'],
                     date('l', strtotime($row['date'])),
-                    $row['open_time'],
-                    $row['close_time']
+                    date('H:i', strtotime($row['open_time'])),
+                    date('H:i', strtotime($row['close_time']))
                 );
 
                 if (date('W', strtotime($row['date'])) === $current_week) {

@@ -24,57 +24,65 @@
 
     <div id="body_content">
       <h4 id="instructions">View our opening times below</h4>
-      <table class="table">
-        <tr>
-          <th>Day</th>
-          <th>Opens</th>
-          <th>Closes</th>
-        </tr>
+      <div id=tables>
+        <div>
+        <h3>This week:</h3>
+          <table class="table">
+            <tr>
+              <th>Day</th>
+              <th>Opens</th>
+              <th>Closes</th>
+            </tr>
 
-        {% for time in this_week %}
-        <tr>
-          <td>{{ time.date }}</td>
-          <td>{{ time.open_time }}</td>
-          <td>{{ time.close_time }}</td>
-          {% if role == "staff" %}
-          <td>
-            <form action="/website/includes/updateOpeningTimes.php" method="post">
-              <input type="hidden" name="id" value="{{ time.id }}">
-              <input type="time" name="open_time" value="{{ time.open_time }}" required>
-              <input type="time" name="close_time" value="{{ time.close_time }}" required>
-              <input type="submit" value="Update">
-            </form>
-          </td>
-          {% endif %}
-        </tr>
-        {% endfor %}
-      </table>
-
-      <table class="table">
-        <tr>
-          <th>Day</th>
-          <th>Opens</th>
-          <th>Closes</th>
-        </tr>
-
-        {% for time in next_week %}
-        <tr>
-          <td>{{ time.date }}</td>
-          <td>{{ time.open_time }}</td>
-          <td>{{ time.close_time }}</td>
+            {% for time in this_week %}
+            <tr>
+              <td>{{ time.date }}</td>
+              <td>{{ time.open_time }}</td>
+              <td>{{ time.close_time }}</td>
               {% if role == "staff" %}
-          <td>
-            <form action="/website/includes/updateOpeningTimes.php" method="post">
-              <input type="hidden" name="id" value="{{ time.id }}">
-              <input type="time" name="open_time" value="{{ time.open_time }}" required>
-              <input type="time" name="close_time" value="{{ time.close_time }}" required>
-              <input type="submit" value="Update">
-            </form>
-          </td>
-          {% endif %}
-        </tr>
-        {% endfor %}
-      </table>
+              <td>
+                <form action="/website/includes/updateOpeningTimes.php" method="post">
+                  <input type="hidden" name="id" value="{{ time.id }}">
+                  <input type="time" name="open_time" value="{{ time.open_time }}" required>
+                  <input type="time" name="close_time" value="{{ time.close_time }}" required>
+                  <input type="submit" value="Update">
+                </form>
+              </td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        
+        <div>
+        <h3>Next week:</h3>
+          <table class="table">
+            <tr>
+              <th>Day</th>
+              <th>Opens</th>
+              <th>Closes</th>
+            </tr>
+
+            {% for time in next_week %}
+            <tr>
+              <td>{{ time.date }}</td>
+              <td>{{ time.open_time }}</td>
+              <td>{{ time.close_time }}</td>
+                  {% if role == "staff" %}
+              <td>
+                <form action="/website/includes/updateOpeningTimes.php" method="post">
+                  <input type="hidden" name="id" value="{{ time.id }}">
+                  <input type="time" name="open_time" value="{{ time.open_time }}" required>
+                  <input type="time" name="close_time" value="{{ time.close_time }}" required>
+                  <input type="submit" value="Update">
+                </form>
+              </td>
+              {% endif %}
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
 
       <!-- {% if role == "staff" %}
       <h4>Update the opening hours:</h4>

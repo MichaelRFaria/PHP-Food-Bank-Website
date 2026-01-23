@@ -5,7 +5,19 @@
   font-size: large;
 }
 
-#table {
-    display: flex;
-    justify-content: center;
+#tables {
+  display: flex;
+  justify-content: space-around;
 }
+
+#tables td {
+  padding: 0.2vh 0.5vw;
+}
+
+#tables th {
+  border-bottom: 1px solid black;
+}
+
+#tables tr:hover {
+  background-color: rgb(204, 173, 132);
+} 
