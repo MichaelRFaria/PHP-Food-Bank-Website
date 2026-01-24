@@ -24,6 +24,15 @@
 
     <div id="body_content">
       <h4 id="instructions">View our opening times below</h4>
+      <div class="messages">
+        {% if error %}
+          <p class="session-error">{{ error }}</p>
+        {% endif %}
+
+        {% if message %}
+          <p class="session-message">{{ message }}</p>
+        {% endif %}
+      </div>
       <div id="tables">
         <div>
           <h3>This week:</h3>
