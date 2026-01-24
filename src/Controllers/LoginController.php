@@ -10,6 +10,7 @@ class LoginController extends Controller
     {
 
         $data["pageTitle"] = 'Login';
+        $data["activePage"] = 'login';
 
         $this->render('login', $data);
     }

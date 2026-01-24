@@ -10,6 +10,7 @@ class RegistrationController extends Controller
     {
 
         $data["pageTitle"] = 'Registration';
+        $data["activePage"] = 'register';
 
         $this->render('register', $data);
     }
