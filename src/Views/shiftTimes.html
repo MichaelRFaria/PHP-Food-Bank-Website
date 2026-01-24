@@ -26,6 +26,15 @@
     {{ include('header.html') }}
 
     <div id="body_content">
+      <div class="messages">
+      {% if error %}
+        <p class="session-error">{{ error }}</p>
+      {% endif %}
+
+      {% if message %}
+        <p class="session-message">{{ message }}</p>
+      {% endif %}
+      </div>
       <h4 id="instructions">View our volunteer shift times below</h4>
       <div id="tables">
         <div>

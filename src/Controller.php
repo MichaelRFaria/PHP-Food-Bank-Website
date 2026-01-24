@@ -17,10 +17,14 @@ class Controller
         // test
         $twig->addGlobal('loggedIn',isset($_SESSION['loggedin']));
         $twig->addGlobal('role',$_SESSION['role'] ?? null);
+        $twig->addGlobal('error',$_SESSION['error'] ?? null);
+        $twig->addGlobal('message',$_SESSION['message'] ?? null);
 
 
         $template = $twig->load("$view.html");
         echo $template->render($data);
+
+        unset($_SESSION['error'], $_SESSION['message']);
 
     }
 }

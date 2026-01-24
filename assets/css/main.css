@@ -94,6 +94,29 @@ body img {
   margin: 0.4rem 0 0.4rem 0;
 }
 
+.messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.session-error {
+  font-size: 20px;
+  color: red;
+  background-color: rgb(204, 173, 132);
+  border-radius: 1vw;
+  padding: 1vw;
+}
+
+.session-message {
+  font-size: 20px;
+  color: green;
+  background-color: rgb(204, 173, 132);
+  border-radius: 1vw;
+  padding: 1vw;
+}
+
 @media screen and (max-width: 600px) {
   /* testimonials.html and contact_us.html use this*/
   #subtitle {
