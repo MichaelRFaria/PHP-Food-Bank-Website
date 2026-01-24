@@ -1,5 +1,13 @@
 <?php
+
 require_once('./dbconnect.php');
+require_once("./validate_session.php");
+
+// if not volunteer
+if (!isset($SESSION['loggedin']) || $_SESSION['role'] !== "staff") {
+	$_SESSION['error'] = 'You must be logged in as a staff to update opening hours.';
+    header('Location: /website/opening-times');
+}
 
 $connection = db_connect();
 

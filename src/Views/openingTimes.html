@@ -41,7 +41,7 @@
               <td>{{ time.close_time }}</td>
               {% if role == "staff" %}
               <td>
-                <form action="/website/includes/updateOpeningTimes.php" method="post">
+                <form action="/website/includes/update_opening_times.php" method="post">
                   <input type="hidden" name="id" value="{{ time.id }}">
                   <input type="time" name="open_time" value="{{ time.open_time }}" required>
                   <input type="time" name="close_time" value="{{ time.close_time }}" required>
