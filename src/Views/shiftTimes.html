@@ -26,71 +26,13 @@
       <h4 id="instructions">View our volunteer shift times below</h4>
       <div id=tables>
         <div>
-        <h3>This week:</h3>
-          <table class="table">
-            <tr>
-              <th>Day</th>
-              <th>Yellow Shift</th>
-              <th>Blue Shift</th>
-              <th>Orange Shift</th>
-              <th>Purple Shift</th>
-            </tr>
-
-            {% for day, shift in this_week %}
-            <tr>
-              <td>{{ day }}</td>
-                {% for colour in ['yellow','blue','orange','purple'] %}
-                    <td>
-                    {% if shift[colour] is defined and shift[colour].start_time %}
-                        {{ shift[colour].start_time }} to {{ shift[colour].end_time }}
-                        {% if role == "volunteer" %}
-                          <form method="post" action="/website/includes/book_shift.php">
-                            <input type="hidden" name="shift_id" value="{{ shift[colour].id }}">
-                            <button type="submit">Book</button>
-                          </form>
-                        {% endif %}
-                    {% else %}
-                        None
-                    {% endif %}
-                    </td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-          </table>
+          <h3>This week:</h3>
+            {{ include('shiftTimesTable.html', { 'week': this_week }) }}
         </div>
         
         <div>
-        <h3>Next week:</h3>
-          <table class="table">
-            <tr>
-              <th>Day</th>
-              <th>Yellow Shift</th>
-              <th>Blue Shift</th>
-              <th>Orange Shift</th>
-              <th>Purple Shift</th>
-            </tr>
-
-            {% for day, shift in next_week %}
-            <tr>
-              <td>{{ day }}</td>
-                {% for colour in ['yellow','blue','orange','purple'] %}
-                    <td>
-                    {% if shift[colour] is defined and shift[colour].start_time %}
-                        {{ shift[colour].start_time }} to {{ shift[colour].end_time }}
-                        {% if role == "volunteer" %}
-                          <form method="post" action="/website/includes/book_shift.php">
-                            <input type="hidden" name="shift_id" value="{{ shift[colour].id }}">
-                            <button type="submit">Book</button>
-                          </form>
-                        {% endif %}
-                    {% else %}
-                        None
-                    {% endif %}
-                    </td>
-                {% endfor %}
-            </tr>
-            {% endfor %}
-          </table>
+          <h3>Next week:</h3>
+         {{ include('shiftTimesTable.html', { 'week': next_week }) }}
         </div>
       </div>
     </div>

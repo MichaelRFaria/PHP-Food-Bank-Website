@@ -1,0 +1,35 @@
+<table class="table">
+  <tr>
+    <th>Day</th>
+    <th>Opens</th>
+    <th>Closes</th>
+  </tr>
+
+  {% for time in week %}
+  <tr>
+    <td>{{ time.date }}</td>
+    <td>{{ time.open_time }}</td>
+    <td>{{ time.close_time }}</td>
+    {% if role == "staff" %}
+    <td>
+      <form action="/website/includes/update_opening_times.php" method="post">
+        <input type="hidden" name="id" value="{{ time.id }}" />
+        <input
+          type="time"
+          name="open_time"
+          value="{{ time.open_time }}"
+          required
+        />
+        <input
+          type="time"
+          name="close_time"
+          value="{{ time.close_time }}"
+          required
+        />
+        <input type="submit" value="Update" />
+      </form>
+    </td>
+    {% endif %}
+  </tr>
+  {% endfor %}
+</table>
