@@ -7,6 +7,7 @@
   <h3><a href="/website/gallery" {% if activePage == "gallery" %}id="selected"{% endif %}>Gallery</a></h3>
   <h3><a href="/website/opening-times" {% if activePage == "opening-times" %}id="selected"{% endif %}>Opening Hours</a></h3>
   {% if loggedIn %}
+  <h3><a href="/website/shift-times" {% if activePage == "shift-times" %}id="selected"{% endif %}>Volunteer Shifts</a></h3>
   <h3><a href="/website/includes/logout.php">Logout</a></h3>
   {% else %}
   <h3><a href="/website/login" {% if activePage == "login" %}id="selected"{% endif %}>Login</a></h3>
