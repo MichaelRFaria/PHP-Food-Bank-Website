@@ -129,6 +129,10 @@ body img {
     justify-content: space-between;
   }
 
+  #navbar a {
+    font-size: 10px;
+  }
+
   #bottom_section p {
     margin: 0;
   }

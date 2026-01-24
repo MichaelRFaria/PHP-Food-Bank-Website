@@ -25,3 +25,14 @@
 #tables tr:hover {
   background-color: rgb(204, 173, 132);
 } 
+
+@media screen and (max-width: 600px) {
+  #tables {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #tables {
+    font-size: 10px;
+  }
+}
