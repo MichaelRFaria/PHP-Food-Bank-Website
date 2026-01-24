@@ -3,20 +3,23 @@ session_start();
 unset($_SESSION['error']);
 require_once('./dbconnect.php');
 
-// // Check if user already logged in.
-// if (isset($_SESSION['loggedin'])) {
-// 	header('Location: ../index.php');
-// 	exit;
-// }
+// Check if user already logged in.
+if (isset($_SESSION['loggedin'])) {
+    $_SESSION['message'] = "You are already logged in!";
+	header('Location: /website/');
+	exit();
+}
+
+// double check email and password have been input.
+if (!isset($_POST['email'], $_POST['password']) ) {
+	$_SESSION['error'] = 'Please enter email and password.';
+    header('Location: /website/login');
+    exit();
+}
+
 
 // Connect to the database.
 $connection = db_connect();
-
-// // double check username and password have been input.
-// if (!isset($_POST['email'], $_POST['password']) ) {
-// 	$_SESSION['error'] = 'Please enter email and password.';
-//     header('Location: ../login.php');
-// }
 
 // // clear past mesages (eg. stop the new account message being shown again)
 // if(isset($_SESSION['message'])) unset($_SESSION['message']);
@@ -45,7 +48,6 @@ if (empty($_SESSION["error"])){
                 $_SESSION['role'] = $role;
                 $_SESSION['latest_action_timestamp'] = time();
 
-
                 // Setup login cookie if remember me is checked
                 if(isset($_POST['remember']) && !empty($_POST['remember'])) {
                     // Calculate expiration time (48 hours)
@@ -68,19 +70,20 @@ if (empty($_SESSION["error"])){
                     setcookie('remember', '', time() - 3600, '/', $_SERVER['SERVER_NAME']);
                 }
                 // Redirect to homepage
-                header('Location: /website/'); // TEMP
+                $_SESSION['message'] = "Successfully logged in!";
+                header('Location: /website/');
                 exit();
             } 
             else {
                 // Incorrect password
-                $_SESSION['error'] = 'Incorrect username and/or password!';
+                $_SESSION['error'] = 'Incorrect email and/or password!';
                 header('Location: /website/login');
                 exit();
             }
         } 
         else {
             // Incorrect username
-            $_SESSION['error'] = 'Incorrect username and/or password!';
+            $_SESSION['error'] = 'Incorrect email and/or password!';
             header('Location: /website/login');
             exit();
         }
@@ -88,9 +91,9 @@ if (empty($_SESSION["error"])){
     // Close connection
     $connection->close();
     
-    // // clear remember status if required
-    // if(!isset($_POST['remember']) || empty($_POST['remember'])){
-    //     setcookie('remember', '', time() - 3600, '/', $_SERVER['SERVER_NAME']);
-    // }
+    // clear remember status if required
+    if(!isset($_POST['remember']) || empty($_POST['remember'])){
+        setcookie('remember', '', time() - 3600, '/', $_SERVER['SERVER_NAME']);
+    }
 }
 ?>

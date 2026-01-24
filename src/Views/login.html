@@ -23,7 +23,16 @@
     {{ include('header.html') }}
 
     <div id="body_content">
-      <h4 id="instructions">Please enter your login details below</h4>
+      <h4 id="instructions">Please enter your login details below:</h4>
+      <div class="messages">
+        {% if error %}
+          <p class="session-error">{{ error }}</p>
+        {% endif %}
+
+        {% if message %}
+          <p class="session-message">{{ message }}</p>
+        {% endif %}
+      </div>
       <form
         id="input_form"
         action="/website/includes/authenticate.php"
