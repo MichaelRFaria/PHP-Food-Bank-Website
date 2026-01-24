@@ -23,6 +23,17 @@ if ($_POST['password'] != $_POST['confirmation_password']) {
     exit();
 }
 
+// checking the password meets the required pattern regex
+$uppercase = preg_match('@[A-Z]@', $_POST['password']);
+$lowercase = preg_match('@[a-z]@', $_POST['password']);
+$number = preg_match('@[0-9]@', $_POST['password']);
+$specialChars = preg_match('@[^\w]@', $_POST['password']);
+if(!($uppercase && $lowercase && $number && $specialChars && strlen($_POST['password']) >= 8)) {
+    $_SESSION['error'] = "Password must be 8 or more characters long, have at least one uppercase, lowercase, number and special character.";
+    header('Location: /website/register');
+    exit();
+}
+
 // checking user is above the age of 18
 $dob = new DateTime($_POST['dob']);
 $today = new DateTime();
