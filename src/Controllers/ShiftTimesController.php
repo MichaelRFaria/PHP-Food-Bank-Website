@@ -14,9 +14,12 @@ class ShiftTimesController extends Controller
         $data["activePage"] = 'shift-times';
 
         $times = Models\ShiftTimes::getShiftTimes();
+        $bookings = Models\ShiftBookings::getShiftBookings();
 
-        $data["this_week"] = $times['this_week'];
-        $data["next_week"] = $times['next_week'];
+        $data["shifts_this_week"] = $times['this_week'];
+        $data["shifts_next_week"] = $times['next_week'];
+        $data["bookings_this_week"] = $bookings['this_week'];
+        $data["bookings_next_week"] = $bookings['next_week'];
 
         $data['role'] = $_SESSION['role'] ?? null;
 

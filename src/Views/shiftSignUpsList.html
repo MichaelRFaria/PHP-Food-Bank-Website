@@ -1,0 +1,10 @@
+{% for day, shift in week %}
+<b>{{ day }}</b>
+{% for color, users in shift %}
+<p>{{ color | capitalize }} Shift:</p>
+<ol>
+  {% for user in users %}
+  <li>{{ user.name }} - {{ user.email }}</li>
+  {% endfor %}
+</ol>
+{% endfor %} {% endfor %}

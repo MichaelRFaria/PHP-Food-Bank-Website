@@ -7,7 +7,10 @@
       name="description"
       content="The official website for the Community Table food bank."
     />
-    <meta name="keywords" content="Community Table, food bank, volunteer shift times" />
+    <meta
+      name="keywords"
+      content="Community Table, food bank, volunteer shift times"
+    />
 
     <link rel="stylesheet" href="/website/assets/css/main.css" />
     <link rel="stylesheet" href="/website/assets/css/shift_times.css" />
@@ -24,15 +27,27 @@
 
     <div id="body_content">
       <h4 id="instructions">View our volunteer shift times below</h4>
-      <div id=tables>
+      <div id="tables">
         <div>
-          <h3>This week:</h3>
-            {{ include('shiftTimesTable.html', { 'week': this_week }) }}
+          <div>
+            <h3>This week:</h3>
+            {{ include('shiftTimesTable.html', { 'week': shifts_this_week }) }}
+          </div>
+          {% if role == "staff" %}
+            <h3>This week's volunteers:</h3>
+            {{ include('shiftSignUpsList.html', { 'week': bookings_this_week}) }}
+          {% endif %}
         </div>
-        
+
         <div>
-          <h3>Next week:</h3>
-         {{ include('shiftTimesTable.html', { 'week': next_week }) }}
+          <div>
+            <h3>Next week:</h3>
+            {{ include('shiftTimesTable.html', { 'week': shifts_next_week }) }}
+          </div>
+          {% if role == "staff" %}
+            <h3>Next week's volunteers:</h3>
+            {{ include('shiftSignUpsList.html', { 'week': bookings_next_week}) }}
+          {% endif %}
         </div>
       </div>
     </div>
