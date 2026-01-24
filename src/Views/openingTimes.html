@@ -1,4 +1,5 @@
 <!doctype html>
+<html>
  {{ include('metadata.html') }}
 
   <body>
@@ -15,7 +16,7 @@
 
         <div>
           <h3>Next week:</h3>
-          {{ include('openingTimesTable.html', { week: this_week, role: role }) }}
+          {{ include('openingTimesTable.html', { week: next_week, role: role }) }}
         </div>
       </div>
     </div>

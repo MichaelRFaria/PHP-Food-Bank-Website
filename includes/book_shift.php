@@ -33,7 +33,7 @@ $stmt->execute();
 $stmt->store_result();
 
 if ($stmt->num_rows() >= 2) {
-	$_SESSION['error'] = 'You have already booked for the maximum number of shifts today.';
+	$_SESSION['error'] = 'You have already booked for the maximum number of shifts for this day.';
     header('Location: /website/shift-times');
     exit();
 }
