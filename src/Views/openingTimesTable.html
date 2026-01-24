@@ -3,6 +3,10 @@
     <th>Day</th>
     <th>Opens</th>
     <th>Closes</th>
+    {% if role == "staff" %}
+    <th>Opens</th>
+    <th>Closes</th>
+    {% endif %}
   </tr>
 
   {% for time in week %}
@@ -11,24 +15,28 @@
     <td>{{ time.open_time }}</td>
     <td>{{ time.close_time }}</td>
     {% if role == "staff" %}
-    <td>
-      <form action="/website/includes/update_opening_times.php" method="post">
-        <input type="hidden" name="id" value="{{ time.id }}" />
+    <form action="/website/includes/update_opening_times.php" method="post">
+      <input type="hidden" name="id" value="{{ time.id }}" />
+      <td>
         <input
           type="time"
           name="open_time"
           value="{{ time.open_time }}"
           required
         />
+      </td>
+      <td>
         <input
           type="time"
           name="close_time"
           value="{{ time.close_time }}"
           required
         />
+      </td>
+      <td>
         <input type="submit" value="Update" />
-      </form>
-    </td>
+      </td>
+    </form>
     {% endif %}
   </tr>
   {% endfor %}

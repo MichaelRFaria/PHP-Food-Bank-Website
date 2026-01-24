@@ -10,6 +10,10 @@
   justify-content: space-around;
 }
 
+#tables p {
+  text-decoration: underline;
+}
+
 #tables td {
   padding: 0.2vh 0.5vw;
 }
