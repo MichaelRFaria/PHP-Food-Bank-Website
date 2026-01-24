@@ -1,6 +1,6 @@
 <?php
 session_start();
-// unset($_SESSION['error']);
+unset($_SESSION['error']);
 require_once('./dbconnect.php');
 
 // // Check if user already logged in.
