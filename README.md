@@ -26,3 +26,5 @@ The website consist of the following separate pages:
 - register.html - a page for registering an account, allowing the user to access volunteering opportunities.
 - login.html - a page for logging in with an account, allowing the user to either book shifts, or modify the opening times, based on the account privileges.
 - shiftTimes.html - a page for booking volunteering shifts, if logged in with a volunteer account.
+
+Created as part of my "Web Development" university module. I recieved 75 out of 100 marks on this coursework.
