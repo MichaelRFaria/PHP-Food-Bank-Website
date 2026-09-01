@@ -1,4 +1,6 @@
 ## Community Table Food Bank Website
+This project is an extension of [this project](https://github.com/MichaelRFaria/HTML-Food-Bank-Website).
+
 A fully functional, interactive webservice created for a fictional food bank aiming to present their business to the public. The project focused on producing a well structured website with clear semantics and appropriate styling, that is accessible and responsible.
 
 This project was my first experience working within a Docker container and with PHP and MySQL.
